@@ -1,28 +1,28 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const cors = require("cors");
-const dotenv = require("dotenv");
+const mongoose = require("mongoose");
 
-dotenv.config({ path: "./config/config.env" });
+require("dotenv").config();
 
-const app = express(); // initialize express
+const app = express();
+const port = process.env.PORT || 5000;
 
-// Use JSON parsing middleware
+app.use(cors());
 app.use(express.json());
 
-// Use CORS middleware
-app.use(cors());
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const connection = mongoose.connection;
+connection.once("open", () => {
+  console.log("MongoDB database connection established successfully");
+});
 
-mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connected to the MongoDB database"))
-  .catch((error) => console.error("connection error:", error));
+const organizationsRouter = require("./routes/organizations.js");
+const usersRouter = require("./routes/users.js");
 
-const PORT = process.env.PORT || 5000;
+app.use("/organizations", organizationsRouter);
+app.use("/users", usersRouter);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });

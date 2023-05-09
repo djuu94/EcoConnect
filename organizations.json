@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Greenpeace",
+    "description": "A global environmental organization focused on worldwide issues such as climate change, deforestation, and overfishing.",
+    "category": "Ocean",
+    "mission": "mission1",
+    "links": [
+      "https://www.greenpeace.org",
+      "https://www.facebook.com/greenpeace.international/",
+      "https://twitter.com/greenpeace"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "World Wildlife Fund (WWF)",
+    "description": "An international non-governmental organization working in the field of the wilderness preservation and the reduction of human impact on the environment.",
+    "category": "Forest",
+    "mission": "mission2",
+    "links": [
+      "https://www.worldwildlife.org",
+      "https://www.facebook.com/worldwildlifefund",
+      "https://twitter.com/World_Wildlife"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Natural Resources Defense Council (NRDC)",
+    "description": "An environmental advocacy group that works to safeguard the Earth, its people, its plants and animals, and the natural systems on which all life depends.",
+    "category": "Jungle",
+    "mission": "mission3",
+    "links": [
+      "https://www.nrdc.org",
+      "https://www.facebook.com/nrdc.org",
+      "https://twitter.com/nrdc"
+    ]
+  }
+]
